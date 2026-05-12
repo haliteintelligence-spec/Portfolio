@@ -12,10 +12,22 @@ type Job = {
 
 const jobs: Job[] = [
   {
+    company: "Halite Intelligence",
+    role: "CEO & Founder",
+    location: "Remote, Global",
+    period: "2026 – Present",
+    current: true,
+    tag: "Founder",
+    highlights: [
+      "Founded and leading Halite Intelligence — a closed-loop AI infrastructure platform built for beauty brands",
+      "Building full-stack product using React, Next.js, Supabase, PostgreSQL, and the Anthropic API",
+    ],
+  },
+  {
     company: "L'Occitane Group",
     role: "Procurement Specialist",
     location: "New York, NY",
-    period: "Apr 2026 – Present",
+    period: "2026 – Present",
     current: true,
     tag: "Beauty",
     highlights: [
@@ -24,48 +36,10 @@ const jobs: Job[] = [
     ],
   },
   {
-    company: "Halite Intelligence",
-    role: "CEO & Founder",
-    location: "Remote, Global",
-    period: "2025 – Present",
-    current: true,
-    tag: "Founder",
-    highlights: [
-      "Founded and leading Halite Intelligence — a closed-loop AI infrastructure platform built for beauty brands",
-      "Architecting AI-powered spend assessment, supplier intelligence, and procurement automation tools tailored to the beauty industry",
-      "Building full-stack product using React, Next.js, Supabase, PostgreSQL, and the Anthropic API",
-    ],
-  },
-  {
-    company: "LodeStar Procurement Advisory",
-    role: "Principal Consultant & Founder",
-    location: "Remote, Global",
-    period: "Sept 2025 – Present",
-    current: true,
-    tag: "Consulting",
-    highlights: [
-      "Led cross-border supplier identification and sourcing initiatives for a personal beauty care brand, securing qualified international manufacturing partners",
-      "Founded and operationalized a pencil manufacturing factory — end-to-end global supplier sourcing, production planning, and operating model development",
-      "Developed comprehensive production, revenue, and cost models to evaluate unit economics and guide capital allocation",
-    ],
-  },
-  {
-    company: "PSS Partners",
-    role: "Senior Procurement Associate (Contractor)",
-    location: "Remote, USA",
-    period: "Aug 2025 – Dec 2025",
-    tag: "Procurement",
-    highlights: [
-      "Led enterprise-wide strategic sourcing initiatives managing $20M+ in annual spend across multiple regions",
-      "Partnered with engineering and product teams to translate sourcing and spend intelligence into inputs for a Spend Assessment AI capability",
-      "Drove contract renewal and commercial optimization efforts, improving vendor performance and delivering sustainable cost improvements",
-    ],
-  },
-  {
     company: "Insight Sourcing Group (Accenture)",
     role: "Consulting Associate / Consultant",
     location: "Atlanta, GA",
-    period: "Jan 2024 – Aug 2025",
+    period: "2024 – 2025",
     tag: "Consulting",
     highlights: [
       "Led cross-functional cost savings initiatives across $150M+ in spend, owning project execution, timelines, and financial outcomes",
@@ -78,7 +52,7 @@ const jobs: Job[] = [
     company: "McKinsey & Company",
     role: "Senior Analyst",
     location: "Atlanta, GA",
-    period: "Nov 2022 – Jan 2024",
+    period: "2022 – 2024",
     tag: "Strategy",
     highlights: [
       "Identified $10M+ in savings across 4 direct categories worth $70M+ in spend as part of a category sourcing transformation",
@@ -90,7 +64,7 @@ const jobs: Job[] = [
     company: "Accenture LLP",
     role: "Senior Strategy Analyst",
     location: "Atlanta, GA",
-    period: "Feb 2021 – Nov 2022",
+    period: "2021 – 2022",
     tag: "Strategy",
     highlights: [
       "Sourcing Program Consultant supporting strategic sourcing for a Products Manufacturing client with $100M+ spend",
