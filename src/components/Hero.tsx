@@ -28,6 +28,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         minHeight: "100vh",
         backgroundColor: "#450F2A",
@@ -177,7 +178,7 @@ export default function Hero() {
           </p>
 
           {/* CTA buttons */}
-          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+          <div className="hero-cta" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <a
               href="#projects"
               style={{
@@ -269,30 +270,6 @@ export default function Hero() {
         />
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .hero-inner {
-            flex-direction: column !important;
-            text-align: center;
-            gap: 36px !important;
-            padding-top: 20px;
-          }
-          .hero-photo-wrap {
-            width: 220px !important;
-          }
-          .hero-photo {
-            width: 220px !important;
-            height: 220px !important;
-          }
-          .hero-inner p {
-            margin-left: auto;
-            margin-right: auto;
-          }
-          .hero-inner > div:last-child > div {
-            justify-content: center;
-          }
-        }
-      `}</style>
     </section>
   );
 }

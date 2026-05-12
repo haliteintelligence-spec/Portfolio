@@ -9,6 +9,7 @@ export default function About() {
   return (
     <section
       id="about"
+      className="about-section"
       style={{
         backgroundColor: "#FAF6F0",
         padding: "96px 24px",
@@ -16,7 +17,7 @@ export default function About() {
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Section label */}
-        <div style={{ marginBottom: "64px" }}>
+        <div className="about-header" style={{ marginBottom: "64px" }}>
           <span
             style={{
               color: "#C17A47",
@@ -179,6 +180,7 @@ export default function About() {
             {stats.map((s) => (
               <div
                 key={s.label}
+                className="about-stat"
                 style={{
                   backgroundColor: "#F2EBE0",
                   borderRadius: "16px",
@@ -263,13 +265,6 @@ export default function About() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .grid-cols-about {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

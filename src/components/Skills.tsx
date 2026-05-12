@@ -95,6 +95,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
+      className="skills-section"
       style={{
         backgroundColor: "#F2EBE0",
         padding: "96px 24px",
@@ -146,7 +147,7 @@ export default function Skills() {
               padding: "16px 28px",
               gap: "24px",
             }}
-            className="skills-grid"
+            className="skills-grid skills-header-row"
           >
             <div
               style={{
@@ -187,7 +188,7 @@ export default function Skills() {
                 borderTop: "1px solid #E8DDD0",
                 alignItems: "start",
               }}
-              className="skills-grid"
+              className="skills-grid skills-row"
             >
               {/* Category name */}
               <div
@@ -250,13 +251,6 @@ export default function Skills() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 640px) {
-          .skills-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

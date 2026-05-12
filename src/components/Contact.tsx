@@ -4,6 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      className="contact-section"
       style={{
         backgroundColor: "#450F2A",
         padding: "96px 24px",
@@ -86,6 +87,7 @@ export default function Contact() {
         </p>
 
         <div
+          className="contact-btns"
           style={{
             display: "flex",
             gap: "16px",
@@ -188,6 +190,7 @@ export default function Contact() {
 
         {/* Quick links */}
         <div
+          className="contact-links"
           style={{
             display: "flex",
             gap: "28px",

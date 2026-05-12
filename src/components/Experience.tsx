@@ -268,6 +268,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      className="experience-section"
       style={{
         backgroundColor: "#FAF6F0",
         padding: "96px 24px",
@@ -366,36 +367,6 @@ export default function Experience() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 700px) {
-          .timeline-line {
-            left: 20px !important;
-            transform: none !important;
-          }
-          .timeline-row {
-            grid-template-columns: 40px 1fr !important;
-          }
-          /* Left-side card: move to column 2 */
-          .timeline-row > div:first-child {
-            grid-column: 2;
-            grid-row: 1;
-            padding-right: 0 !important;
-            padding-left: 16px;
-          }
-          /* Dot: move to column 1 */
-          .timeline-row > div:nth-child(2) {
-            grid-column: 1;
-            grid-row: 1;
-            justify-content: flex-start !important;
-          }
-          /* Right-side card: stays in column 2 */
-          .timeline-row > div:last-child {
-            grid-column: 2;
-            grid-row: 1;
-            padding-left: 16px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

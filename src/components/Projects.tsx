@@ -50,6 +50,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
+      className="projects-section"
       style={{
         backgroundColor: "#F2EBE0",
         padding: "96px 24px",
@@ -84,9 +85,10 @@ export default function Projects() {
         </div>
 
         <div
+          className="projects-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))",
             gap: "24px",
           }}
         >
@@ -116,6 +118,7 @@ export default function Projects() {
             >
               {/* Card header banner */}
               <div
+                className="project-card-header"
                 style={{
                   backgroundColor: project.accent,
                   padding: "32px 28px 24px",
@@ -170,6 +173,7 @@ export default function Projects() {
 
               {/* Card body */}
               <div
+                className="project-card-body"
                 style={{
                   padding: "24px 28px",
                   flex: 1,
