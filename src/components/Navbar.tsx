@@ -94,28 +94,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop hire-me pill */}
-          <a
-            href="mailto:marieozenua@gmail.com"
-            className="nav-hire"
-            style={{
-              backgroundColor: "#C17A47",
-              color: "#FAF6F0",
-              padding: "8px 20px",
-              borderRadius: "999px",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              textDecoration: "none",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              transition: "background-color 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a86438")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#C17A47")}
-          >
-            Hire Me
-          </a>
-
           {/* Hamburger — mobile only */}
           <button
             className="nav-hamburger"
@@ -197,42 +175,18 @@ export default function Navbar() {
           </a>
         ))}
 
-        {/* Email CTA at bottom of overlay */}
-        <a
-          href="mailto:marieozenua@gmail.com"
-          onClick={() => setMenuOpen(false)}
-          style={{
-            marginTop: "24px",
-            backgroundColor: "#C17A47",
-            color: "#FAF6F0",
-            padding: "14px 36px",
-            borderRadius: "999px",
-            fontSize: "0.85rem",
-            fontWeight: 600,
-            textDecoration: "none",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            opacity: menuOpen ? 1 : 0,
-            transition: "opacity 0.2s",
-            transitionDelay: menuOpen ? `${links.length * 50}ms` : "0ms",
-          }}
-        >
-          Hire Me
-        </a>
       </div>
 
       <style>{`
         /* Desktop: show links + hire pill, hide hamburger */
         @media (min-width: 769px) {
           .nav-desktop { display: flex !important; }
-          .nav-hire    { display: block !important; }
           .nav-hamburger { display: none !important; }
           .nav-mobile-overlay { display: none !important; }
         }
         /* Mobile: hide desktop links + hire pill, show hamburger */
         @media (max-width: 768px) {
           .nav-desktop { display: none !important; }
-          .nav-hire    { display: none !important; }
           .nav-hamburger { display: block !important; }
         }
       `}</style>
