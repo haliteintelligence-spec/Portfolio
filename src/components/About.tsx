@@ -61,13 +61,12 @@ export default function About() {
                 marginBottom: "20px",
               }}
             >
-              I am the rare kind of builder who moves between spreadsheets and
-              source code without losing the thread. With a Master&apos;s in
-              Supply Chain Engineering from Georgia Tech and a career spanning
-              McKinsey, Accenture, and global procurement advisory, I have spent
-              years turning complex supply systems into competitive advantages —
-              managing hundreds of millions of dollars in spend across beauty,
-              manufacturing, and private equity.
+              I move between spreadsheets and source code without losing the
+              thread. With a Master&apos;s in Supply Chain Engineering from
+              Georgia Tech and a career spanning McKinsey, Accenture, and global
+              procurement advisory, I have spent years turning complex supply
+              systems into competitive advantages across beauty, manufacturing,
+              and private equity.
             </p>
             <p
               style={{
@@ -77,16 +76,13 @@ export default function About() {
                 marginBottom: "20px",
               }}
             >
-              But my truest passion lives at the intersection of beauty and
-              technology. I founded{" "}
-              <strong style={{ color: "#450F2A" }}>Halite Intelligence</strong>{" "}
-              — a closed-loop AI infrastructure built specifically for beauty
-              brands — because I believe the industry deserves smarter,
-              faster, and more equitable tools. I also built{" "}
+              My deepest work lives at the intersection of beauty and technology.
+              I founded{" "}
+              <strong style={{ color: "#450F2A" }}>Halite Intelligence</strong>
+              {" "}— closed-loop AI infrastructure for beauty brands — and{" "}
               <strong style={{ color: "#450F2A" }}>Nnu Botanica</strong>, a
-              beauty brand rooted in ancestral botanicals and modern science,
-              because representation in beauty is not a trend — it is a
-              necessity.
+              brand rooted in ancestral botanicals, because representation in
+              beauty is not a trend — it is a necessity.
             </p>
             <p
               style={{
@@ -95,11 +91,10 @@ export default function About() {
                 lineHeight: 1.8,
               }}
             >
-              My goal is simple: make a meaningful difference in inclusive
-              beauty by bringing the rigor of enterprise operations and the
-              creativity of a founder to every problem I touch. Whether I am
-              negotiating a $20M supplier contract or shipping a new AI feature,
-              I bring the same precision, intentionality, and care.
+              My goal: make a meaningful difference in inclusive beauty by
+              bringing enterprise rigor and founder creativity to every problem
+              — whether negotiating a $20M supplier contract or shipping a new
+              AI feature.
             </p>
 
             <div

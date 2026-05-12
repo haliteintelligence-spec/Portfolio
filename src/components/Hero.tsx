@@ -113,7 +113,7 @@ export default function Hero() {
               src="/headshot.jpg"
               alt="Marie K. Ozenua"
               fill
-              style={{ objectFit: "cover", objectPosition: "center top" }}
+              style={{ objectFit: "cover", objectPosition: "center 18%" }}
               priority
             />
           </div>
