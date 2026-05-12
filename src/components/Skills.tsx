@@ -9,19 +9,6 @@ type Category = {
 
 const categories: Category[] = [
   {
-    name: "Procurement & Strategy",
-    skills: [
-      { name: "Strategic Sourcing", have: true },
-      { name: "Spend Analysis", have: true },
-      { name: "Supplier Management", have: true },
-      { name: "RFx Process", have: true },
-      { name: "Contract Negotiation", have: true },
-      { name: "Cost Optimization", have: true },
-      { name: "Category Management", have: true },
-      { name: "CAPM (In Progress)", have: true },
-    ],
-  },
-  {
     name: "Data & Analytics",
     skills: [
       { name: "Python", have: true },
@@ -67,6 +54,18 @@ const categories: Category[] = [
       { name: "Facebook Ads", have: true },
       { name: "Shopify", have: true },
       { name: "Photography", have: true },
+    ],
+  },
+  {
+    name: "Procurement & Strategy",
+    skills: [
+      { name: "Strategic Sourcing", have: true },
+      { name: "Spend Analysis", have: true },
+      { name: "Supplier Management", have: true },
+      { name: "RFx Process", have: true },
+      { name: "Contract Negotiation", have: true },
+      { name: "Cost Optimization", have: true },
+      { name: "Category Management", have: true },
     ],
   },
 ];

@@ -40,7 +40,7 @@ export default function Footer() {
             fontWeight: 400,
           }}
         >
-          © {year} Marie K. Ozenua · Built with Next.js & Vercel
+          © {year} Marie K. Ozenua
         </div>
 
         <div style={{ display: "flex", gap: "20px" }}>

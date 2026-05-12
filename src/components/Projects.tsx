@@ -40,6 +40,7 @@ const projects: Project[] = [
       "An AI-powered beauty discovery platform that helps users find products aligned with their skin profile, values, and aesthetic. Aura uses intelligent filtering and personalization to surface products that truly fit — moving beyond the noise of traditional beauty retail.",
     tags: ["Next.js", "React", "AI", "Vercel"],
     url: "https://aura-chi-three.vercel.app/",
+    github: "https://github.com/haliteintelligence-spec/Aura",
     accent: "#8B6575",
     emoji: "✦",
   },

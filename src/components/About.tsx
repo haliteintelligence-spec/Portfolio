@@ -1,8 +1,6 @@
 "use client";
 
 const stats = [
-  { value: "$150M+", label: "Spend under management" },
-  { value: "200+", label: "Vendors managed" },
   { value: "5+", label: "Years consulting" },
   { value: "3", label: "Ventures founded" },
 ];
