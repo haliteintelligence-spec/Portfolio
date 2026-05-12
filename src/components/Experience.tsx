@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 type Job = {
   company: string;
   role: string;
@@ -84,28 +86,37 @@ const tagColors: Record<string, { bg: string; text: string }> = {
 };
 
 function Card({ job }: { job: Job }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div
       style={{
         backgroundColor: "#F8F3EE",
         borderRadius: "16px",
-        padding: "24px 28px",
         border: "1px solid #E8DDD0",
         width: "100%",
+        overflow: "hidden",
       }}
     >
-      {/* Top row */}
-      <div
+      {/* Clickable header */}
+      <button
+        onClick={() => setOpen((o) => !o)}
         style={{
+          width: "100%",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: "22px 28px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
-          flexWrap: "wrap",
-          gap: "8px",
-          marginBottom: "4px",
+          gap: "12px",
+          textAlign: "left",
         }}
+        aria-expanded={open}
       >
-        <div>
+        {/* Left: company + role */}
+        <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
               fontWeight: 700,
@@ -126,74 +137,109 @@ function Card({ job }: { job: Job }) {
           >
             {job.role}
           </div>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center", marginTop: "6px", flexWrap: "wrap" }}>
+            {job.tag && (
+              <span
+                style={{
+                  backgroundColor: tagColors[job.tag]?.bg ?? "rgba(69,15,42,0.08)",
+                  color: tagColors[job.tag]?.text ?? "#450F2A",
+                  padding: "2px 10px",
+                  borderRadius: "999px",
+                  fontSize: "0.68rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {job.tag}
+              </span>
+            )}
+            <span style={{ color: "#8B6575", fontSize: "0.78rem", fontWeight: 500 }}>
+              {job.period} · {job.location}
+            </span>
+          </div>
         </div>
 
+        {/* Chevron */}
         <div
           style={{
+            flexShrink: 0,
+            width: "28px",
+            height: "28px",
+            borderRadius: "50%",
+            backgroundColor: open ? "#450F2A" : "rgba(69,15,42,0.08)",
             display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-end",
-            gap: "6px",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "background-color 0.2s",
+            marginTop: "2px",
           }}
         >
-          {job.tag && (
-            <span
-              style={{
-                backgroundColor: tagColors[job.tag]?.bg ?? "rgba(69,15,42,0.08)",
-                color: tagColors[job.tag]?.text ?? "#450F2A",
-                padding: "3px 10px",
-                borderRadius: "999px",
-                fontSize: "0.7rem",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              {job.tag}
-            </span>
-          )}
-          <span style={{ color: "#8B6575", fontSize: "0.78rem", fontWeight: 500 }}>
-            {job.period} · {job.location}
-          </span>
-        </div>
-      </div>
-
-      <div
-        style={{
-          height: "1px",
-          backgroundColor: "#E8DDD0",
-          margin: "14px 0",
-        }}
-      />
-
-      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
-        {job.highlights.map((h, j) => (
-          <li
-            key={j}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
             style={{
-              position: "relative",
-              color: "#1A0A12",
-              fontSize: "0.875rem",
-              lineHeight: 1.7,
-              marginBottom: j < job.highlights.length - 1 ? "6px" : 0,
-              paddingLeft: "16px",
+              transition: "transform 0.3s ease",
+              transform: open ? "rotate(180deg)" : "rotate(0deg)",
             }}
           >
-            <span
-              style={{
-                position: "absolute",
-                left: "2px",
-                top: "10px",
-                width: "4px",
-                height: "4px",
-                borderRadius: "50%",
-                backgroundColor: "#C17A47",
-              }}
+            <path
+              d="M2 4L6 8L10 4"
+              stroke={open ? "#FAF6F0" : "#450F2A"}
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-            {h}
-          </li>
-        ))}
-      </ul>
+          </svg>
+        </div>
+      </button>
+
+      {/* Expandable bullet list */}
+      <div
+        style={{
+          maxHeight: open ? "600px" : "0",
+          overflow: "hidden",
+          transition: "max-height 0.35s ease",
+        }}
+      >
+        <div
+          style={{
+            borderTop: "1px solid #E8DDD0",
+            padding: "18px 28px 22px",
+          }}
+        >
+          <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+            {job.highlights.map((h, j) => (
+              <li
+                key={j}
+                style={{
+                  position: "relative",
+                  color: "#1A0A12",
+                  fontSize: "0.875rem",
+                  lineHeight: 1.7,
+                  marginBottom: j < job.highlights.length - 1 ? "6px" : 0,
+                  paddingLeft: "16px",
+                }}
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "2px",
+                    top: "10px",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    backgroundColor: "#C17A47",
+                  }}
+                />
+                {h}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
