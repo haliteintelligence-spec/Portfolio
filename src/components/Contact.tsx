@@ -6,7 +6,7 @@ export default function Contact() {
       id="contact"
       className="contact-section"
       style={{
-        backgroundColor: "#450F2A",
+        backgroundColor: "#151B3C",
         padding: "96px 24px",
         position: "relative",
         overflow: "hidden",
@@ -21,7 +21,7 @@ export default function Contact() {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          border: "1px solid rgba(193,122,71,0.12)",
+          border: "1px solid rgba(125,137,125,0.12)",
           pointerEvents: "none",
         }}
       />
@@ -33,7 +33,7 @@ export default function Contact() {
           width: "300px",
           height: "300px",
           borderRadius: "50%",
-          border: "1px solid rgba(193,122,71,0.08)",
+          border: "1px solid rgba(125,137,125,0.08)",
           pointerEvents: "none",
         }}
       />
@@ -49,7 +49,7 @@ export default function Contact() {
       >
         <span
           style={{
-            color: "#C17A47",
+            color: "#7D897D",
             fontSize: "0.75rem",
             fontWeight: 700,
             letterSpacing: "0.12em",
@@ -70,7 +70,7 @@ export default function Contact() {
           }}
         >
           Let&apos;s Build Something{" "}
-          <span style={{ color: "#C17A47", fontStyle: "italic" }}>Together</span>
+          <span style={{ color: "#7D897D", fontStyle: "italic" }}>Together</span>
         </h2>
         <p
           style={{
@@ -102,7 +102,7 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              backgroundColor: "#C17A47",
+              backgroundColor: "#7D897D",
               color: "#FAF6F0",
               padding: "14px 32px",
               borderRadius: "999px",
@@ -114,11 +114,11 @@ export default function Contact() {
               transition: "background-color 0.2s, transform 0.2s",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#a86438";
+              e.currentTarget.style.backgroundColor = "#6b7a6b";
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#C17A47";
+              e.currentTarget.style.backgroundColor = "#7D897D";
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >

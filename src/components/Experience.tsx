@@ -78,11 +78,11 @@ const jobs: Job[] = [
 ];
 
 const tagColors: Record<string, { bg: string; text: string }> = {
-  Beauty:      { bg: "rgba(193,122,71,0.12)",  text: "#C17A47" },
-  Founder:     { bg: "rgba(69,15,42,0.12)",    text: "#450F2A" },
-  Consulting:  { bg: "rgba(107,30,63,0.1)",    text: "#6B1E3F" },
-  Procurement: { bg: "rgba(74,42,56,0.1)",     text: "#4A2A38" },
-  Strategy:    { bg: "rgba(139,101,117,0.15)", text: "#8B6575" },
+  Beauty:      { bg: "rgba(125,137,125,0.12)",  text: "#7D897D" },
+  Founder:     { bg: "rgba(21,27,60,0.12)",    text: "#151B3C" },
+  Consulting:  { bg: "rgba(70,82,67,0.1)",    text: "#465243" },
+  Procurement: { bg: "rgba(37,59,30,0.1)",     text: "#253B1E" },
+  Strategy:    { bg: "rgba(70,89,70,0.15)", text: "#465946" },
 };
 
 function Card({ job }: { job: Job }) {
@@ -120,7 +120,7 @@ function Card({ job }: { job: Job }) {
           <div
             style={{
               fontWeight: 700,
-              color: "#450F2A",
+              color: "#151B3C",
               fontSize: "1rem",
               fontFamily: "var(--font-playfair), Georgia, serif",
             }}
@@ -129,7 +129,7 @@ function Card({ job }: { job: Job }) {
           </div>
           <div
             style={{
-              color: "#4A2A38",
+              color: "#253B1E",
               fontSize: "0.875rem",
               fontWeight: 600,
               marginTop: "2px",
@@ -141,8 +141,8 @@ function Card({ job }: { job: Job }) {
             {job.tag && (
               <span
                 style={{
-                  backgroundColor: tagColors[job.tag]?.bg ?? "rgba(69,15,42,0.08)",
-                  color: tagColors[job.tag]?.text ?? "#450F2A",
+                  backgroundColor: tagColors[job.tag]?.bg ?? "rgba(21,27,60,0.08)",
+                  color: tagColors[job.tag]?.text ?? "#151B3C",
                   padding: "2px 10px",
                   borderRadius: "999px",
                   fontSize: "0.68rem",
@@ -154,7 +154,7 @@ function Card({ job }: { job: Job }) {
                 {job.tag}
               </span>
             )}
-            <span style={{ color: "#8B6575", fontSize: "0.78rem", fontWeight: 500 }}>
+            <span style={{ color: "#465946", fontSize: "0.78rem", fontWeight: 500 }}>
               {job.period} · {job.location}
             </span>
           </div>
@@ -167,7 +167,7 @@ function Card({ job }: { job: Job }) {
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            backgroundColor: open ? "#450F2A" : "rgba(69,15,42,0.08)",
+            backgroundColor: open ? "#151B3C" : "rgba(21,27,60,0.08)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -187,7 +187,7 @@ function Card({ job }: { job: Job }) {
           >
             <path
               d="M2 4L6 8L10 4"
-              stroke={open ? "#FAF6F0" : "#450F2A"}
+              stroke={open ? "#FAF6F0" : "#151B3C"}
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -231,7 +231,7 @@ function Card({ job }: { job: Job }) {
                     width: "4px",
                     height: "4px",
                     borderRadius: "50%",
-                    backgroundColor: "#C17A47",
+                    backgroundColor: "#7D897D",
                   }}
                 />
                 {h}
@@ -251,11 +251,11 @@ function Dot({ current }: { current?: boolean }) {
         width: "16px",
         height: "16px",
         borderRadius: "50%",
-        backgroundColor: current ? "#C17A47" : "#450F2A",
+        backgroundColor: current ? "#7D897D" : "#151B3C",
         border: "3px solid #FAF6F0",
         boxShadow: current
-          ? "0 0 0 2px #C17A47"
-          : "0 0 0 2px rgba(69,15,42,0.3)",
+          ? "0 0 0 2px #7D897D"
+          : "0 0 0 2px rgba(21,27,60,0.3)",
         flexShrink: 0,
         zIndex: 1,
         position: "relative",
@@ -279,7 +279,7 @@ export default function Experience() {
         <div style={{ marginBottom: "64px" }}>
           <span
             style={{
-              color: "#C17A47",
+              color: "#7D897D",
               fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.12em",
@@ -293,7 +293,7 @@ export default function Experience() {
               fontFamily: "var(--font-playfair), Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 700,
-              color: "#450F2A",
+              color: "#151B3C",
               marginTop: "8px",
               lineHeight: 1.2,
             }}
@@ -315,7 +315,7 @@ export default function Experience() {
               bottom: "8px",
               width: "2px",
               background:
-                "linear-gradient(to bottom, #450F2A, rgba(69,15,42,0.1))",
+                "linear-gradient(to bottom, #151B3C, rgba(21,27,60,0.1))",
               zIndex: 0,
             }}
           />

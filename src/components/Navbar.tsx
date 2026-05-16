@@ -36,9 +36,9 @@ export default function Navbar() {
           right: 0,
           zIndex: 50,
           transition: "background-color 0.3s ease, border-color 0.3s ease",
-          backgroundColor: scrolled || menuOpen ? "rgba(69,15,42,0.97)" : "transparent",
+          backgroundColor: scrolled || menuOpen ? "rgba(21,27,60,0.97)" : "transparent",
           backdropFilter: scrolled || menuOpen ? "blur(8px)" : "none",
-          borderBottom: scrolled && !menuOpen ? "1px solid rgba(139,101,117,0.2)" : "none",
+          borderBottom: scrolled && !menuOpen ? "1px solid rgba(70,89,70,0.2)" : "none",
         }}
       >
         <nav
@@ -138,7 +138,7 @@ export default function Navbar() {
           position: "fixed",
           inset: 0,
           zIndex: 40,
-          backgroundColor: "#2D0A1C",
+          backgroundColor: "#111950",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -168,7 +168,7 @@ export default function Navbar() {
               transitionDelay: menuOpen ? `${i * 50}ms` : "0ms",
               letterSpacing: "-0.01em",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(193,122,71,0.12)")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(125,137,125,0.12)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
           >
             {l.label}

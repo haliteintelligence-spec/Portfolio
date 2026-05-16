@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "#2D0A1C",
+        backgroundColor: "#111950",
         padding: "32px 24px",
-        borderTop: "1px solid rgba(139,101,117,0.15)",
+        borderTop: "1px solid rgba(70,89,70,0.15)",
       }}
     >
       <div

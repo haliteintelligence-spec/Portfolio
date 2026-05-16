@@ -20,7 +20,7 @@ export default function About() {
         <div className="about-header" style={{ marginBottom: "64px" }}>
           <span
             style={{
-              color: "#C17A47",
+              color: "#7D897D",
               fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.12em",
@@ -34,7 +34,7 @@ export default function About() {
               fontFamily: "var(--font-playfair), Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 700,
-              color: "#450F2A",
+              color: "#151B3C",
               marginTop: "8px",
               lineHeight: 1.2,
             }}
@@ -79,9 +79,9 @@ export default function About() {
             >
               My deepest work lives at the intersection of beauty and technology.
               I founded{" "}
-              <strong style={{ color: "#450F2A" }}>Halite Intelligence</strong>
+              <strong style={{ color: "#151B3C" }}>Halite Intelligence</strong>
               {" "}— closed-loop AI infrastructure for beauty brands — and{" "}
-              <strong style={{ color: "#450F2A" }}>Nnu Botanica</strong>, a
+              <strong style={{ color: "#151B3C" }}>Nnu Botanica</strong>, a
               brand rooted in ancestral botanicals, because representation in
               beauty is not a trend — it is a necessity.
             </p>
@@ -114,7 +114,7 @@ export default function About() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  backgroundColor: "#450F2A",
+                  backgroundColor: "#151B3C",
                   color: "#FAF6F0",
                   padding: "10px 22px",
                   borderRadius: "999px",
@@ -126,10 +126,10 @@ export default function About() {
                   transition: "background-color 0.2s",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#6B1E3F")
+                  (e.currentTarget.style.backgroundColor = "#465243")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#450F2A")
+                  (e.currentTarget.style.backgroundColor = "#151B3C")
                 }
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -144,7 +144,7 @@ export default function About() {
                   alignItems: "center",
                   gap: "8px",
                   backgroundColor: "transparent",
-                  color: "#450F2A",
+                  color: "#151B3C",
                   padding: "10px 22px",
                   borderRadius: "999px",
                   fontSize: "0.8rem",
@@ -152,16 +152,16 @@ export default function About() {
                   textDecoration: "none",
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
-                  border: "1px solid #450F2A",
+                  border: "1px solid #151B3C",
                   transition: "background-color 0.2s, color 0.2s",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#450F2A";
+                  e.currentTarget.style.backgroundColor = "#151B3C";
                   e.currentTarget.style.color = "#FAF6F0";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "#450F2A";
+                  e.currentTarget.style.color = "#151B3C";
                 }}
               >
                 Contact Me
@@ -194,7 +194,7 @@ export default function About() {
                     fontFamily: "var(--font-playfair), Georgia, serif",
                     fontSize: "2.4rem",
                     fontWeight: 700,
-                    color: "#C17A47",
+                    color: "#7D897D",
                     lineHeight: 1,
                     marginBottom: "10px",
                   }}
@@ -204,7 +204,7 @@ export default function About() {
                 <div
                   style={{
                     fontSize: "0.8rem",
-                    color: "#4A2A38",
+                    color: "#253B1E",
                     fontWeight: 500,
                     lineHeight: 1.4,
                   }}
@@ -218,7 +218,7 @@ export default function About() {
             <div
               style={{
                 gridColumn: "span 2",
-                backgroundColor: "#450F2A",
+                backgroundColor: "#151B3C",
                 borderRadius: "16px",
                 padding: "28px 28px",
                 color: "#FAF6F0",
@@ -226,7 +226,7 @@ export default function About() {
             >
               <div
                 style={{
-                  color: "#C17A47",
+                  color: "#7D897D",
                   fontSize: "0.7rem",
                   fontWeight: 700,
                   letterSpacing: "0.1em",

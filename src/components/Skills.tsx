@@ -79,10 +79,10 @@ function CheckIcon() {
       fill="none"
       style={{ flexShrink: 0 }}
     >
-      <circle cx="8" cy="8" r="8" fill="#450F2A" fillOpacity="0.12" />
+      <circle cx="8" cy="8" r="8" fill="#151B3C" fillOpacity="0.12" />
       <path
         d="M4.5 8.5L7 11L11.5 6"
-        stroke="#450F2A"
+        stroke="#151B3C"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -106,7 +106,7 @@ export default function Skills() {
         <div style={{ marginBottom: "56px" }}>
           <span
             style={{
-              color: "#C17A47",
+              color: "#7D897D",
               fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.12em",
@@ -120,7 +120,7 @@ export default function Skills() {
               fontFamily: "var(--font-playfair), Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 700,
-              color: "#450F2A",
+              color: "#151B3C",
               marginTop: "8px",
               lineHeight: 1.2,
             }}
@@ -135,13 +135,13 @@ export default function Skills() {
             borderRadius: "20px",
             overflow: "hidden",
             border: "1px solid #E8DDD0",
-            boxShadow: "0 2px 24px rgba(69,15,42,0.06)",
+            boxShadow: "0 2px 24px rgba(21,27,60,0.06)",
           }}
         >
           {/* Table header */}
           <div
             style={{
-              backgroundColor: "#450F2A",
+              backgroundColor: "#151B3C",
               display: "grid",
               gridTemplateColumns: "240px 1fr",
               padding: "16px 28px",
@@ -194,7 +194,7 @@ export default function Skills() {
               <div
                 style={{
                   fontWeight: 600,
-                  color: "#450F2A",
+                  color: "#151B3C",
                   fontSize: "0.9rem",
                   paddingTop: "2px",
                 }}
@@ -218,13 +218,13 @@ export default function Skills() {
                       alignItems: "center",
                       gap: "6px",
                       backgroundColor: skill.have
-                        ? "rgba(69,15,42,0.06)"
+                        ? "rgba(21,27,60,0.06)"
                         : "rgba(196,181,189,0.2)",
-                      border: `1px solid ${skill.have ? "rgba(69,15,42,0.15)" : "rgba(196,181,189,0.4)"}`,
+                      border: `1px solid ${skill.have ? "rgba(21,27,60,0.15)" : "rgba(196,181,189,0.4)"}`,
                       borderRadius: "999px",
                       padding: "5px 12px 5px 8px",
                       fontSize: "0.8rem",
-                      color: skill.have ? "#450F2A" : "#8B6575",
+                      color: skill.have ? "#151B3C" : "#465946",
                       fontWeight: 500,
                       transition: "background-color 0.2s",
                     }}
@@ -233,10 +233,10 @@ export default function Skills() {
                       <CheckIcon />
                     ) : (
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="8" fill="#C4B5BD" fillOpacity="0.3" />
+                        <circle cx="8" cy="8" r="8" fill="#7D897D" fillOpacity="0.3" />
                         <path
                           d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5"
-                          stroke="#C4B5BD"
+                          stroke="#7D897D"
                           strokeWidth="1.5"
                           strokeLinecap="round"
                         />

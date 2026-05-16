@@ -31,7 +31,7 @@ export default function Hero() {
       className="hero-section"
       style={{
         minHeight: "100vh",
-        backgroundColor: "#450F2A",
+        backgroundColor: "#151B3C",
         display: "flex",
         alignItems: "center",
         position: "relative",
@@ -49,7 +49,7 @@ export default function Hero() {
           width: "900px",
           height: "900px",
           borderRadius: "50%",
-          border: "1px solid rgba(193,122,71,0.08)",
+          border: "1px solid rgba(125,137,125,0.08)",
           pointerEvents: "none",
         }}
       />
@@ -62,7 +62,7 @@ export default function Hero() {
           width: "650px",
           height: "650px",
           borderRadius: "50%",
-          border: "1px solid rgba(193,122,71,0.06)",
+          border: "1px solid rgba(125,137,125,0.06)",
           pointerEvents: "none",
         }}
       />
@@ -95,7 +95,7 @@ export default function Hero() {
               inset: "-6px",
               borderRadius: "50%",
               background:
-                "conic-gradient(from 180deg, #C17A47 0%, transparent 40%, #C17A47 70%, transparent 100%)",
+                "conic-gradient(from 180deg, #7D897D 0%, transparent 40%, #7D897D 70%, transparent 100%)",
               opacity: 0.6,
             }}
           />
@@ -106,7 +106,7 @@ export default function Hero() {
               height: "340px",
               borderRadius: "50%",
               overflow: "hidden",
-              border: "4px solid #2D0A1C",
+              border: "4px solid #111950",
             }}
             className="hero-photo"
           >
@@ -150,7 +150,7 @@ export default function Hero() {
               style={{
                 fontFamily: "var(--font-playfair), Georgia, serif",
                 fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
-                color: "#C17A47",
+                color: "#7D897D",
                 fontStyle: "italic",
                 fontWeight: 600,
                 transition: "opacity 0.4s ease, transform 0.4s ease",
@@ -182,7 +182,7 @@ export default function Hero() {
             <a
               href="#projects"
               style={{
-                backgroundColor: "#C17A47",
+                backgroundColor: "#7D897D",
                 color: "#FAF6F0",
                 padding: "14px 32px",
                 borderRadius: "999px",
@@ -195,11 +195,11 @@ export default function Hero() {
                 display: "inline-block",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#a86438";
+                e.currentTarget.style.backgroundColor = "#6b7a6b";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#C17A47";
+                e.currentTarget.style.backgroundColor = "#7D897D";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >

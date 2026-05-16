@@ -20,7 +20,7 @@ const projects: Project[] = [
     tags: ["React", "Next.js", "Anthropic API", "Supabase", "PostgreSQL", "AWS"],
     url: "https://haliteintelligence.com",
     github: "https://github.com/haliteintelligence-spec",
-    accent: "#450F2A",
+    accent: "#151B3C",
     emoji: "⬡",
   },
   {
@@ -30,7 +30,7 @@ const projects: Project[] = [
       "A beauty brand rooted in the power of ancestral botanicals and elevated by modern science. Nnu Botanica was born from the belief that inclusive beauty is not a niche — it is the standard. Every product is a bridge between heritage wisdom and contemporary formulation.",
     tags: ["Shopify", "Brand Strategy", "Supply Chain", "Product Development"],
     url: "https://nnubotanica.com",
-    accent: "#6B1E3F",
+    accent: "#465243",
     emoji: "🌿",
   },
   {
@@ -41,7 +41,7 @@ const projects: Project[] = [
     tags: ["Next.js", "React", "AI", "Vercel"],
     url: "https://aura-chi-three.vercel.app/",
     github: "https://github.com/haliteintelligence-spec/Aura",
-    accent: "#8B6575",
+    accent: "#465946",
     emoji: "✦",
   },
 ];
@@ -61,7 +61,7 @@ export default function Projects() {
         <div style={{ marginBottom: "56px" }}>
           <span
             style={{
-              color: "#C17A47",
+              color: "#7D897D",
               fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.12em",
@@ -75,7 +75,7 @@ export default function Projects() {
               fontFamily: "var(--font-playfair), Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3rem)",
               fontWeight: 700,
-              color: "#450F2A",
+              color: "#151B3C",
               marginTop: "8px",
               lineHeight: 1.2,
             }}
@@ -103,17 +103,17 @@ export default function Projects() {
                 display: "flex",
                 flexDirection: "column",
                 transition: "transform 0.25s ease, box-shadow 0.25s ease",
-                boxShadow: "0 2px 16px rgba(69,15,42,0.04)",
+                boxShadow: "0 2px 16px rgba(21,27,60,0.04)",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
-                  "0 12px 40px rgba(69,15,42,0.12)";
+                  "0 12px 40px rgba(21,27,60,0.12)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
                 e.currentTarget.style.boxShadow =
-                  "0 2px 16px rgba(69,15,42,0.04)";
+                  "0 2px 16px rgba(21,27,60,0.04)";
               }}
             >
               {/* Card header banner */}
@@ -202,7 +202,7 @@ export default function Projects() {
                       style={{
                         backgroundColor: "#F2EBE0",
                         border: "1px solid #E8DDD0",
-                        color: "#4A2A38",
+                        color: "#253B1E",
                         padding: "4px 10px",
                         borderRadius: "999px",
                         fontSize: "0.72rem",
@@ -279,7 +279,7 @@ export default function Projects() {
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor =
-                          "rgba(69,15,42,0.06)";
+                          "rgba(21,27,60,0.06)";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = "transparent";
