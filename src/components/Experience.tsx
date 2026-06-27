@@ -77,28 +77,19 @@ const jobs: Job[] = [
   },
 ];
 
-const tagColors: Record<string, { bg: string; text: string }> = {
-  Beauty:      { bg: "rgba(125,137,125,0.12)",  text: "#7D897D" },
-  Founder:     { bg: "rgba(21,27,60,0.12)",    text: "#151B3C" },
-  Consulting:  { bg: "rgba(70,82,67,0.1)",    text: "#465243" },
-  Procurement: { bg: "rgba(37,59,30,0.1)",     text: "#253B1E" },
-  Strategy:    { bg: "rgba(70,89,70,0.15)", text: "#465946" },
-};
-
 function Card({ job }: { job: Job }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div
       style={{
-        backgroundColor: "#F8F3EE",
-        borderRadius: "16px",
-        border: "1px solid #E8DDD0",
+        backgroundColor: "#FFFFFF",
+        borderRadius: "4px",
+        border: "1px solid #EAE7E2",
         width: "100%",
         overflow: "hidden",
       }}
     >
-      {/* Clickable header */}
       <button
         onClick={() => setOpen((o) => !o)}
         style={{
@@ -106,7 +97,7 @@ function Card({ job }: { job: Job }) {
           background: "none",
           border: "none",
           cursor: "pointer",
-          padding: "22px 28px",
+          padding: "22px 24px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
@@ -115,70 +106,82 @@ function Card({ job }: { job: Job }) {
         }}
         aria-expanded={open}
       >
-        {/* Left: company + role */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
-              fontWeight: 700,
-              color: "#151B3C",
-              fontSize: "1rem",
-              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontFamily: "var(--font-mayfest), Georgia, serif",
+              fontWeight: 400,
+              color: "#303030",
+              fontSize: "1.05rem",
+              letterSpacing: "0.01em",
+              marginBottom: "4px",
             }}
           >
             {job.company}
           </div>
           <div
             style={{
-              color: "#253B1E",
-              fontSize: "0.875rem",
-              fontWeight: 600,
-              marginTop: "2px",
+              fontFamily: "var(--font-quattrocento), sans-serif",
+              color: "#827E79",
+              fontSize: "12px",
+              fontWeight: 400,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              marginBottom: "8px",
             }}
           >
             {job.role}
           </div>
-          <div style={{ display: "flex", gap: "8px", alignItems: "center", marginTop: "6px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
             {job.tag && (
               <span
                 style={{
-                  backgroundColor: tagColors[job.tag]?.bg ?? "rgba(21,27,60,0.08)",
-                  color: tagColors[job.tag]?.text ?? "#151B3C",
+                  fontFamily: "var(--font-questrial), sans-serif",
+                  backgroundColor: "#EAE7E2",
+                  color: "#303030",
                   padding: "2px 10px",
-                  borderRadius: "999px",
-                  fontSize: "0.68rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.05em",
+                  borderRadius: "2px",
+                  fontSize: "9px",
+                  fontWeight: 400,
+                  letterSpacing: "0.2em",
                   textTransform: "uppercase",
                 }}
               >
                 {job.tag}
               </span>
             )}
-            <span style={{ color: "#465946", fontSize: "0.78rem", fontWeight: 500 }}>
+            <span
+              style={{
+                fontFamily: "var(--font-questrial), sans-serif",
+                color: "#827E79",
+                fontSize: "10px",
+                letterSpacing: "0.1em",
+              }}
+            >
               {job.period} · {job.location}
             </span>
           </div>
         </div>
 
-        {/* Chevron */}
         <div
           style={{
             flexShrink: 0,
-            width: "28px",
-            height: "28px",
+            width: "26px",
+            height: "26px",
             borderRadius: "50%",
-            backgroundColor: open ? "#151B3C" : "rgba(21,27,60,0.08)",
+            backgroundColor: open ? "#303030" : "transparent",
+            border: `1px solid ${open ? "#303030" : "#EAE7E2"}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "background-color 0.2s",
+            transition: "background-color 0.2s, border-color 0.2s",
             marginTop: "2px",
           }}
         >
           <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
             fill="none"
             style={{
               transition: "transform 0.3s ease",
@@ -186,9 +189,9 @@ function Card({ job }: { job: Job }) {
             }}
           >
             <path
-              d="M2 4L6 8L10 4"
-              stroke={open ? "#FAF6F0" : "#151B3C"}
-              strokeWidth="1.8"
+              d="M1.5 3.5L5 7L8.5 3.5"
+              stroke={open ? "#FFFFFF" : "#303030"}
+              strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -196,7 +199,6 @@ function Card({ job }: { job: Job }) {
         </div>
       </button>
 
-      {/* Expandable bullet list */}
       <div
         style={{
           maxHeight: open ? "600px" : "0",
@@ -204,21 +206,18 @@ function Card({ job }: { job: Job }) {
           transition: "max-height 0.35s ease",
         }}
       >
-        <div
-          style={{
-            borderTop: "1px solid #E8DDD0",
-            padding: "18px 28px 22px",
-          }}
-        >
+        <div style={{ borderTop: "1px solid #EAE7E2", padding: "16px 24px 22px" }}>
           <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
             {job.highlights.map((h, j) => (
               <li
                 key={j}
                 style={{
                   position: "relative",
-                  color: "#1A0A12",
-                  fontSize: "0.875rem",
+                  color: "#303030",
+                  fontSize: "13px",
+                  fontWeight: 300,
                   lineHeight: 1.7,
+                  letterSpacing: "0.02em",
                   marginBottom: j < job.highlights.length - 1 ? "6px" : 0,
                   paddingLeft: "16px",
                 }}
@@ -227,11 +226,11 @@ function Card({ job }: { job: Job }) {
                   style={{
                     position: "absolute",
                     left: "2px",
-                    top: "10px",
-                    width: "4px",
-                    height: "4px",
+                    top: "9px",
+                    width: "3px",
+                    height: "3px",
                     borderRadius: "50%",
-                    backgroundColor: "#7D897D",
+                    backgroundColor: "#827E79",
                   }}
                 />
                 {h}
@@ -248,14 +247,14 @@ function Dot({ current }: { current?: boolean }) {
   return (
     <div
       style={{
-        width: "16px",
-        height: "16px",
+        width: "14px",
+        height: "14px",
         borderRadius: "50%",
-        backgroundColor: current ? "#7D897D" : "#151B3C",
-        border: "3px solid #FAF6F0",
+        backgroundColor: current ? "#827E79" : "#303030",
+        border: "3px solid #FFFFFF",
         boxShadow: current
-          ? "0 0 0 2px #7D897D"
-          : "0 0 0 2px rgba(21,27,60,0.3)",
+          ? "0 0 0 2px #827E79"
+          : "0 0 0 1px rgba(48,48,48,0.25)",
         flexShrink: 0,
         zIndex: 1,
         position: "relative",
@@ -270,8 +269,8 @@ export default function Experience() {
       id="experience"
       className="experience-section"
       style={{
-        backgroundColor: "#FAF6F0",
-        padding: "96px 24px",
+        backgroundColor: "#F7F6F1",
+        padding: "100px 24px",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -279,32 +278,34 @@ export default function Experience() {
         <div style={{ marginBottom: "64px" }}>
           <span
             style={{
-              color: "#7D897D",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
+              fontFamily: "var(--font-questrial), sans-serif",
+              color: "#827E79",
+              fontSize: "10px",
+              fontWeight: 400,
+              letterSpacing: "0.3em",
               textTransform: "uppercase",
+              display: "block",
+              marginBottom: "16px",
             }}
           >
             Experience
           </span>
           <h2
             style={{
-              fontFamily: "var(--font-playfair), Georgia, serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 700,
-              color: "#151B3C",
-              marginTop: "8px",
-              lineHeight: 1.2,
+              fontFamily: "var(--font-mayfest), Georgia, serif",
+              fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+              fontWeight: 400,
+              color: "#303030",
+              lineHeight: 1.1,
+              letterSpacing: "0.01em",
             }}
           >
             Career Journey
           </h2>
         </div>
 
-        {/* Alternating timeline */}
+        {/* Timeline */}
         <div style={{ position: "relative" }} className="timeline-root">
-          {/* Center vertical line */}
           <div
             className="timeline-line"
             style={{
@@ -313,14 +314,13 @@ export default function Experience() {
               transform: "translateX(-50%)",
               top: "8px",
               bottom: "8px",
-              width: "2px",
-              background:
-                "linear-gradient(to bottom, #151B3C, rgba(21,27,60,0.1))",
+              width: "1px",
+              background: "linear-gradient(to bottom, #303030, rgba(48,48,48,0.1))",
               zIndex: 0,
             }}
           />
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {jobs.map((job, i) => {
               const isLeft = i % 2 === 0;
               return (
@@ -334,29 +334,12 @@ export default function Experience() {
                   }}
                   className="timeline-row"
                 >
-                  {/* Left slot */}
-                  <div
-                    style={{
-                      paddingRight: "24px",
-                      paddingTop: isLeft ? 0 : undefined,
-                    }}
-                  >
+                  <div style={{ paddingRight: "24px" }}>
                     {isLeft && <Card job={job} />}
                   </div>
-
-                  {/* Center dot */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      paddingTop: "18px",
-                      zIndex: 1,
-                    }}
-                  >
+                  <div style={{ display: "flex", justifyContent: "center", paddingTop: "18px", zIndex: 1 }}>
                     <Dot current={job.current} />
                   </div>
-
-                  {/* Right slot */}
                   <div style={{ paddingLeft: "24px" }}>
                     {!isLeft && <Card job={job} />}
                   </div>
@@ -366,7 +349,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

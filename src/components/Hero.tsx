@@ -1,275 +1,224 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-
-const roles = [
-  "Procurement Strategist",
-  "AI Builder",
-  "Operations Leader",
-  "Founder",
+const ventures = [
+  {
+    name: "MKH Collective",
+    label: "CPG Consulting",
+    desc: "Strategy that moves the shelf. Data-driven consulting for CPG brands — growth, procurement, and operations in one integrated practice.",
+    href: "https://www.mkhcollective.com",
+  },
+  {
+    name: "Halite Intelligence",
+    label: "AI Infrastructure",
+    desc: "Predictive CPG intelligence platform — turning consumer interactions into retention, personalization, and growth.",
+    href: "https://haliteintelligence.com",
+  },
+  {
+    name: "Nnu Botanica",
+    label: "Brand & Founder",
+    desc: "A beauty brand rooted in ancestral botanicals — because representation in beauty is not a trend, it is a necessity.",
+    href: "https://nnubotanica.com",
+  },
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setRoleIndex((i) => (i + 1) % roles.length);
-        setVisible(true);
-      }, 400);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="hero"
       className="hero-section"
       style={{
-        minHeight: "100vh",
-        backgroundColor: "#151B3C",
-        display: "flex",
-        alignItems: "center",
+        backgroundColor: "#FFFFFF",
+        paddingTop: "100px",
         position: "relative",
         overflow: "hidden",
-        padding: "80px 48px 48px",
       }}
     >
-      {/* Decorative background rings */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "900px",
-          height: "900px",
-          borderRadius: "50%",
-          border: "1px solid rgba(125,137,125,0.08)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "650px",
-          height: "650px",
-          borderRadius: "50%",
-          border: "1px solid rgba(125,137,125,0.06)",
-          pointerEvents: "none",
-        }}
-      />
-
+      {/* ── Top editorial block ── */}
       <div
         style={{
           maxWidth: "1100px",
-          width: "100%",
           margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          gap: "64px",
-          position: "relative",
-          zIndex: 1,
+          padding: "0 40px 72px",
+          textAlign: "center",
         }}
-        className="hero-inner"
       >
-        {/* Photo — left side */}
-        <div
+        {/* Label */}
+        <p
           style={{
-            flexShrink: 0,
-            position: "relative",
+            fontFamily: "var(--font-questrial), sans-serif",
+            fontSize: "10px",
+            fontWeight: 400,
+            color: "#827E79",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            marginBottom: "28px",
           }}
-          className="hero-photo-wrap"
         >
-          {/* Gold ring behind photo */}
-          <div
-            style={{
-              position: "absolute",
-              inset: "-6px",
-              borderRadius: "50%",
-              background:
-                "conic-gradient(from 180deg, #7D897D 0%, transparent 40%, #7D897D 70%, transparent 100%)",
-              opacity: 0.6,
-            }}
-          />
-          <div
-            style={{
-              position: "relative",
-              width: "340px",
-              height: "340px",
-              borderRadius: "50%",
-              overflow: "hidden",
-              border: "4px solid #111950",
-            }}
-            className="hero-photo"
-          >
-            <Image
-              src="/headshot.jpg"
-              alt="Marie K. Ozenua"
-              fill
-              style={{ objectFit: "cover", objectPosition: "center 18%" }}
-              priority
-            />
-          </div>
-        </div>
+          Meet Marie K. Ozenua
+        </p>
 
-        {/* Text — right side */}
-        <div style={{ flex: 1 }}>
-          {/* Name */}
-          <h1
-            style={{
-              fontFamily: "var(--font-playfair), Georgia, serif",
-              fontSize: "clamp(2.4rem, 5vw, 4.8rem)",
-              fontWeight: 700,
-              color: "#FAF6F0",
-              lineHeight: 1.1,
-              marginBottom: "16px",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Marie K. Ozenua
-          </h1>
+        {/* Hero heading */}
+        <h1
+          style={{
+            fontFamily: "var(--font-mayfest), Georgia, serif",
+            fontSize: "clamp(3.2rem, 7vw, 6.5rem)",
+            fontWeight: 400,
+            color: "#303030",
+            lineHeight: 1.05,
+            letterSpacing: "0.01em",
+            marginBottom: "36px",
+            maxWidth: "900px",
+            margin: "0 auto 36px",
+          }}
+        >
+          A procurement strategist, AI builder &amp; founder making real impact at the intersection of{" "}
+          <span style={{ fontFamily: "var(--font-mayfest)", fontStyle: "italic" }}>
+            beauty and technology.
+          </span>
+        </h1>
 
-          {/* Animated role */}
-          <div
+        {/* CTA */}
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginBottom: "80px" }}>
+          <a
+            href="#about"
             style={{
-              height: "44px",
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "24px",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-playfair), Georgia, serif",
-                fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
-                color: "#7D897D",
-                fontStyle: "italic",
-                fontWeight: 600,
-                transition: "opacity 0.4s ease, transform 0.4s ease",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(8px)",
-              }}
-            >
-              {roles[roleIndex]}
-            </span>
-          </div>
-
-          {/* Tagline */}
-          <p
-            style={{
-              color: "rgba(250,246,240,0.75)",
-              fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)",
-              lineHeight: 1.75,
-              maxWidth: "520px",
-              marginBottom: "44px",
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+              padding: "10px 28px",
+              borderRadius: "10px",
+              fontSize: "12px",
+              fontFamily: "var(--font-quattrocento), sans-serif",
               fontWeight: 400,
+              textDecoration: "none",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              transition: "opacity 0.2s",
+              display: "inline-block",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Bridging enterprise procurement strategy and AI innovation to build
-            a more inclusive beauty industry — from boardrooms to build logs.
-          </p>
-
-          {/* CTA buttons */}
-          <div className="hero-cta" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-            <a
-              href="#projects"
-              style={{
-                backgroundColor: "#7D897D",
-                color: "#FAF6F0",
-                padding: "14px 32px",
-                borderRadius: "999px",
-                fontSize: "0.875rem",
-                fontWeight: 600,
-                textDecoration: "none",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                transition: "background-color 0.2s, transform 0.2s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#6b7a6b";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#7D897D";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              style={{
-                backgroundColor: "transparent",
-                color: "#FAF6F0",
-                padding: "14px 32px",
-                borderRadius: "999px",
-                fontSize: "0.875rem",
-                fontWeight: 600,
-                textDecoration: "none",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                border: "1px solid rgba(250,246,240,0.35)",
-                transition: "border-color 0.2s, transform 0.2s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(250,246,240,0.7)";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(250,246,240,0.35)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              Get in Touch
-            </a>
-          </div>
+            Learn More
+          </a>
+          <a
+            href="#contact"
+            style={{
+              backgroundColor: "transparent",
+              color: "#000000",
+              padding: "10px 28px",
+              borderRadius: "10px",
+              fontSize: "12px",
+              fontFamily: "var(--font-quattrocento), sans-serif",
+              fontWeight: 400,
+              textDecoration: "none",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              border: "2px solid #000000",
+              transition: "opacity 0.2s",
+              display: "inline-block",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Get in Touch
+          </a>
         </div>
+
       </div>
 
-      {/* Scroll indicator */}
+      {/* ── Divider ── */}
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 40px" }}>
+        <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(48,48,48,0.15)" }} />
+      </div>
+
+      {/* ── Venture cards ── */}
       <div
         style={{
-          position: "absolute",
-          bottom: "36px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "8px",
-          opacity: 0.4,
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "0 40px",
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
         }}
+        className="hero-ventures"
       >
-        <span
-          style={{
-            color: "#FAF6F0",
-            fontSize: "0.65rem",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-          }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: "1px",
-            height: "40px",
-            background:
-              "linear-gradient(to bottom, rgba(250,246,240,0.6), transparent)",
-          }}
-        />
+        {ventures.map((v, i) => (
+          <a
+            key={v.name}
+            href={v.href}
+            target={v.href.startsWith("http") ? "_blank" : "_self"}
+            rel={v.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            style={{
+              display: "block",
+              padding: "36px 28px",
+              textDecoration: "none",
+              borderRight: i < ventures.length - 1 ? "1px solid rgba(48,48,48,0.12)" : "none",
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-questrial), sans-serif",
+                fontSize: "10px",
+                fontWeight: 400,
+                color: "#827E79",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                marginBottom: "8px",
+              }}
+            >
+              {v.label}
+            </p>
+            <h3
+              style={{
+                fontFamily: "var(--font-quattrocento), sans-serif",
+                fontSize: "12px",
+                fontWeight: 400,
+                color: "#303030",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                marginBottom: "12px",
+              }}
+            >
+              {v.name} →
+            </h3>
+            <p
+              style={{
+                fontFamily: "var(--font-lato), sans-serif",
+                fontSize: "13px",
+                fontWeight: 300,
+                color: "#303030",
+                lineHeight: 1.7,
+                letterSpacing: "0.02em",
+                opacity: 0.75,
+              }}
+            >
+              {v.desc}
+            </p>
+          </a>
+        ))}
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-ventures {
+            grid-template-columns: 1fr !important;
+          }
+          .hero-ventures a {
+            border-right: none !important;
+            border-bottom: 1px solid rgba(48,48,48,0.12);
+          }
+          .hero-ventures a:last-child {
+            border-bottom: none;
+          }
+          .hero-photo {
+            width: 220px !important;
+            height: 270px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

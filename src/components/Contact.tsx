@@ -6,38 +6,12 @@ export default function Contact() {
       id="contact"
       className="contact-section"
       style={{
-        backgroundColor: "#151B3C",
-        padding: "96px 24px",
+        backgroundColor: "#303030",
+        padding: "100px 24px",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Decorative */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-100px",
-          right: "-100px",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          border: "1px solid rgba(125,137,125,0.12)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "-80px",
-          left: "-80px",
-          width: "300px",
-          height: "300px",
-          borderRadius: "50%",
-          border: "1px solid rgba(125,137,125,0.08)",
-          pointerEvents: "none",
-        }}
-      />
-
       <div
         style={{
           maxWidth: "700px",
@@ -49,37 +23,41 @@ export default function Contact() {
       >
         <span
           style={{
-            color: "#7D897D",
-            fontSize: "0.75rem",
-            fontWeight: 700,
-            letterSpacing: "0.12em",
+            fontFamily: "var(--font-questrial), sans-serif",
+            color: "#827E79",
+            fontSize: "10px",
+            fontWeight: 400,
+            letterSpacing: "0.3em",
             textTransform: "uppercase",
+            display: "block",
+            marginBottom: "20px",
           }}
         >
           Contact
         </span>
         <h2
           style={{
-            fontFamily: "var(--font-playfair), Georgia, serif",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            fontWeight: 700,
-            color: "#FAF6F0",
-            marginTop: "12px",
-            marginBottom: "20px",
-            lineHeight: 1.15,
+            fontFamily: "var(--font-mayfest), Georgia, serif",
+            fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)",
+            fontWeight: 400,
+            color: "#FFFFFF",
+            marginBottom: "24px",
+            lineHeight: 1.1,
+            letterSpacing: "0.01em",
           }}
         >
-          Let&apos;s Build Something{" "}
-          <span style={{ color: "#7D897D", fontStyle: "italic" }}>Together</span>
+          Let&apos;s Build Something Together
         </h2>
         <p
           style={{
-            color: "rgba(250,246,240,0.7)",
-            fontSize: "1.05rem",
-            lineHeight: 1.75,
+            color: "rgba(255,255,255,0.6)",
+            fontSize: "14px",
+            lineHeight: 1.7,
             marginBottom: "52px",
-            maxWidth: "520px",
+            maxWidth: "480px",
             margin: "0 auto 52px",
+            fontWeight: 300,
+            letterSpacing: "0.035em",
           }}
         >
           Whether you want to discuss a procurement challenge, explore a partnership
@@ -90,7 +68,7 @@ export default function Contact() {
           className="contact-btns"
           style={{
             display: "flex",
-            gap: "16px",
+            gap: "12px",
             justifyContent: "center",
             flexWrap: "wrap",
             marginBottom: "56px",
@@ -102,36 +80,22 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              backgroundColor: "#7D897D",
-              color: "#FAF6F0",
-              padding: "14px 32px",
-              borderRadius: "999px",
-              fontSize: "0.875rem",
-              fontWeight: 600,
+              backgroundColor: "#FFFFFF",
+              color: "#000000",
+              padding: "10px 28px",
+              borderRadius: "10px",
+              fontSize: "12px",
+              fontFamily: "var(--font-quattrocento), sans-serif",
+              fontWeight: 400,
               textDecoration: "none",
-              letterSpacing: "0.05em",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
-              transition: "background-color 0.2s, transform 0.2s",
+              transition: "opacity 0.2s",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#6b7a6b";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#7D897D";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
@@ -146,49 +110,37 @@ export default function Contact() {
               alignItems: "center",
               gap: "10px",
               backgroundColor: "transparent",
-              color: "#FAF6F0",
-              padding: "14px 32px",
-              borderRadius: "999px",
-              fontSize: "0.875rem",
-              fontWeight: 600,
+              color: "#FFFFFF",
+              padding: "10px 28px",
+              borderRadius: "10px",
+              fontSize: "12px",
+              fontFamily: "var(--font-quattrocento), sans-serif",
+              fontWeight: 400,
               textDecoration: "none",
-              letterSpacing: "0.05em",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
-              border: "1px solid rgba(250,246,240,0.35)",
-              transition: "border-color 0.2s, transform 0.2s",
+              border: "2px solid rgba(255,255,255,0.4)",
+              transition: "border-color 0.2s, opacity 0.2s",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(250,246,240,0.7)";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(250,246,240,0.35)";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.8)")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)")}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
             </svg>
             GitHub
           </a>
         </div>
 
-        {/* Divider */}
         <div
           style={{
-            width: "60px",
+            width: "40px",
             height: "1px",
-            backgroundColor: "rgba(250,246,240,0.15)",
+            backgroundColor: "rgba(255,255,255,0.12)",
             margin: "0 auto 32px",
           }}
         />
 
-        {/* Quick links */}
         <div
           className="contact-links"
           style={{
@@ -199,6 +151,7 @@ export default function Contact() {
           }}
         >
           {[
+            { label: "MKH Collective", href: "https://www.mkhcollective.com" },
             { label: "Halite Intelligence", href: "https://haliteintelligence.com" },
             { label: "Nnu Botanica", href: "https://nnubotanica.com" },
             { label: "Aura", href: "https://aura-chi-three.vercel.app/" },
@@ -209,19 +162,17 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: "rgba(250,246,240,0.5)",
+                fontFamily: "var(--font-questrial), sans-serif",
+                color: "rgba(255,255,255,0.4)",
                 textDecoration: "none",
-                fontSize: "0.8rem",
-                fontWeight: 500,
-                letterSpacing: "0.03em",
+                fontSize: "10px",
+                fontWeight: 400,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "rgba(250,246,240,0.9)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "rgba(250,246,240,0.5)")
-              }
+              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
             >
               {link.label}
             </a>

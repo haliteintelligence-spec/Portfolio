@@ -1,11 +1,7 @@
 "use client";
 
 type Skill = { name: string; have: boolean };
-
-type Category = {
-  name: string;
-  skills: Skill[];
-};
+type Category = { name: string; skills: Skill[] };
 
 const categories: Category[] = [
   {
@@ -70,35 +66,14 @@ const categories: Category[] = [
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      style={{ flexShrink: 0 }}
-    >
-      <circle cx="8" cy="8" r="8" fill="#151B3C" fillOpacity="0.12" />
-      <path
-        d="M4.5 8.5L7 11L11.5 6"
-        stroke="#151B3C"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function Skills() {
   return (
     <section
       id="skills"
       className="skills-section"
       style={{
-        backgroundColor: "#F2EBE0",
-        padding: "96px 24px",
+        backgroundColor: "#FFFFFF",
+        padding: "100px 24px",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -106,69 +81,73 @@ export default function Skills() {
         <div style={{ marginBottom: "56px" }}>
           <span
             style={{
-              color: "#7D897D",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
+              fontFamily: "var(--font-questrial), sans-serif",
+              color: "#827E79",
+              fontSize: "10px",
+              fontWeight: 400,
+              letterSpacing: "0.3em",
               textTransform: "uppercase",
+              display: "block",
+              marginBottom: "16px",
             }}
           >
             Skills
           </span>
           <h2
             style={{
-              fontFamily: "var(--font-playfair), Georgia, serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 700,
-              color: "#151B3C",
-              marginTop: "8px",
-              lineHeight: 1.2,
+              fontFamily: "var(--font-mayfest), Georgia, serif",
+              fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+              fontWeight: 400,
+              color: "#303030",
+              lineHeight: 1.1,
+              letterSpacing: "0.01em",
             }}
           >
             Tools & Expertise
           </h2>
         </div>
 
-        {/* Skill table */}
+        {/* Table */}
         <div
           style={{
-            borderRadius: "20px",
+            borderRadius: "4px",
             overflow: "hidden",
-            border: "1px solid #E8DDD0",
-            boxShadow: "0 2px 24px rgba(21,27,60,0.06)",
+            border: "1px solid #EAE7E2",
           }}
         >
-          {/* Table header */}
+          {/* Header row */}
           <div
             style={{
-              backgroundColor: "#151B3C",
+              backgroundColor: "#303030",
               display: "grid",
-              gridTemplateColumns: "240px 1fr",
-              padding: "16px 28px",
+              gridTemplateColumns: "220px 1fr",
+              padding: "14px 28px",
               gap: "24px",
             }}
             className="skills-grid skills-header-row"
           >
             <div
               style={{
-                color: "#FAF6F0",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
+                fontFamily: "var(--font-questrial), sans-serif",
+                color: "#FFFFFF",
+                fontSize: "10px",
+                fontWeight: 400,
+                letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                opacity: 0.7,
+                opacity: 0.6,
               }}
             >
               Category
             </div>
             <div
               style={{
-                color: "#FAF6F0",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
+                fontFamily: "var(--font-questrial), sans-serif",
+                color: "#FFFFFF",
+                fontSize: "10px",
+                fontWeight: 400,
+                letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                opacity: 0.7,
+                opacity: 0.6,
               }}
             >
               Skills
@@ -181,35 +160,30 @@ export default function Skills() {
               key={cat.name}
               style={{
                 display: "grid",
-                gridTemplateColumns: "240px 1fr",
+                gridTemplateColumns: "220px 1fr",
                 gap: "24px",
-                padding: "24px 28px",
-                backgroundColor: i % 2 === 0 ? "#FAF6F0" : "#F8F3EE",
-                borderTop: "1px solid #E8DDD0",
+                padding: "22px 28px",
+                backgroundColor: i % 2 === 0 ? "#FFFFFF" : "#F7F6F1",
+                borderTop: "1px solid #EAE7E2",
                 alignItems: "start",
               }}
               className="skills-grid skills-row"
             >
-              {/* Category name */}
               <div
                 style={{
-                  fontWeight: 600,
-                  color: "#151B3C",
-                  fontSize: "0.9rem",
-                  paddingTop: "2px",
+                  fontFamily: "var(--font-questrial), sans-serif",
+                  fontWeight: 400,
+                  color: "#303030",
+                  fontSize: "10px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  paddingTop: "4px",
                 }}
               >
                 {cat.name}
               </div>
 
-              {/* Skills */}
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "10px",
-                }}
-              >
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
@@ -217,31 +191,17 @@ export default function Skills() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "6px",
-                      backgroundColor: skill.have
-                        ? "rgba(21,27,60,0.06)"
-                        : "rgba(196,181,189,0.2)",
-                      border: `1px solid ${skill.have ? "rgba(21,27,60,0.15)" : "rgba(196,181,189,0.4)"}`,
-                      borderRadius: "999px",
-                      padding: "5px 12px 5px 8px",
-                      fontSize: "0.8rem",
-                      color: skill.have ? "#151B3C" : "#465946",
-                      fontWeight: 500,
-                      transition: "background-color 0.2s",
+                      backgroundColor: "transparent",
+                      border: "1px solid #EAE7E2",
+                      borderRadius: "4px",
+                      padding: "5px 12px",
+                      fontSize: "12px",
+                      fontFamily: "var(--font-quattrocento), sans-serif",
+                      color: "#303030",
+                      fontWeight: 400,
+                      letterSpacing: "0.05em",
                     }}
                   >
-                    {skill.have ? (
-                      <CheckIcon />
-                    ) : (
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="8" fill="#7D897D" fillOpacity="0.3" />
-                        <path
-                          d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5"
-                          stroke="#7D897D"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    )}
                     {skill.name}
                   </div>
                 ))}
@@ -250,7 +210,6 @@ export default function Skills() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }

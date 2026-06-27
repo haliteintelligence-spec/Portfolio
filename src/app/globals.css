@@ -1,50 +1,49 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-burgundy: #151B3C;
-  --color-burgundy-dark: #111950;
-  --color-burgundy-light: #465243;
-  --color-ivory: #FAF6F0;
-  --color-ivory-2: #F2EBE0;
-  --color-ivory-3: #F8F3EE;
-  --color-sand: #E8DDD0;
-  --color-ink: #1A0A12;
-  --color-plum: #253B1E;
-  --color-dusty-rose: #465946;
-  --color-muted-pink: #7D897D;
-  --color-gold: #7D897D;
+  --color-white: #FFFFFF;
+  --color-off-white: #F7F6F1;
+  --color-cream: #EAE7E2;
+  --color-charcoal: #303030;
+  --color-black: #000000;
+  --color-taupe: #827E79;
 
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-sans: var(--font-lato);
+  --font-display: var(--font-mayfest);
+  --font-label: var(--font-questrial);
+  --font-sub: var(--font-quattrocento);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #FAF6F0;
-  color: #1A0A12;
+  background-color: #FFFFFF;
+  color: #303030;
+  font-family: var(--font-lato), "Lato", sans-serif;
+  font-weight: 300;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #F2EBE0; }
-::-webkit-scrollbar-thumb { background: #151B3C; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #F7F6F1; }
+::-webkit-scrollbar-thumb { background: #303030; border-radius: 3px; }
 
 /* ─── Hero ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 72px 16px 48px !important;
+    padding: 72px 24px 48px !important;
   }
   .hero-inner {
     flex-direction: column !important;
     text-align: center !important;
-    gap: 28px !important;
+    gap: 32px !important;
   }
   .hero-photo-wrap {
-    width: 180px !important;
+    width: 200px !important;
+    margin: 0 auto;
   }
   .hero-photo {
-    width: 180px !important;
-    height: 180px !important;
+    width: 200px !important;
+    height: 200px !important;
   }
   .hero-inner p {
     margin-left: auto !important;
@@ -64,14 +63,14 @@ body {
 /* ─── About ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .about-section {
-    padding: 64px 16px !important;
+    padding: 80px 24px !important;
   }
   .about-header {
-    margin-bottom: 36px !important;
+    margin-bottom: 40px !important;
   }
   .grid-cols-about {
     grid-template-columns: 1fr !important;
-    gap: 32px !important;
+    gap: 40px !important;
   }
   .about-stat {
     padding: 24px 16px !important;
@@ -81,7 +80,7 @@ body {
 /* ─── Skills ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .skills-section {
-    padding: 64px 16px !important;
+    padding: 80px 24px !important;
   }
 }
 @media (max-width: 640px) {
@@ -89,17 +88,17 @@ body {
     grid-template-columns: 1fr !important;
   }
   .skills-header-row {
-    padding: 12px 16px !important;
+    padding: 12px 20px !important;
   }
   .skills-row {
-    padding: 18px 16px !important;
+    padding: 20px 20px !important;
   }
 }
 
 /* ─── Experience ─────────────────────────────────────── */
 @media (max-width: 768px) {
   .experience-section {
-    padding: 64px 16px !important;
+    padding: 80px 24px !important;
   }
 }
 @media (max-width: 700px) {
@@ -131,23 +130,23 @@ body {
 /* ─── Projects ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .projects-section {
-    padding: 64px 16px !important;
+    padding: 80px 24px !important;
   }
   .projects-grid {
     grid-template-columns: 1fr !important;
   }
   .project-card-header {
-    padding: 24px 20px 20px !important;
+    padding: 28px 24px 20px !important;
   }
   .project-card-body {
-    padding: 20px 20px !important;
+    padding: 24px 24px !important;
   }
 }
 
 /* ─── Contact ────────────────────────────────────────── */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 64px 16px !important;
+    padding: 80px 24px !important;
   }
   .contact-btns {
     flex-direction: column !important;

@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Lato, Questrial, Quattrocento_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
+  weight: ["300", "400", "700"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const questrial = Questrial({
+  variable: "--font-questrial",
   subsets: ["latin"],
+  weight: "400",
+});
+
+const quattrocento = Quattrocento_Sans({
+  variable: "--font-quattrocento",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const mayfest = localFont({
+  src: "./fonts/Mayfest-Regular.ttf",
+  variable: "--font-mayfest",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${lato.variable} ${mayfest.variable} ${questrial.variable} ${quattrocento.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
