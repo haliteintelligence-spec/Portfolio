@@ -369,7 +369,7 @@ export default function Contact() {
             }}
           >
             {[
-              { label: "MKO Collective", href: "https://www.mkhcollective.com" },
+              { label: "MKH Collective", href: "https://www.mkhcollective.com" },
               { label: "Halite Intelligence", href: "https://haliteintelligence.com" },
               { label: "Nnu Botanica", href: "https://nnubotanica.com" },
               { label: "Aura", href: "https://aura-chi-three.vercel.app/" },

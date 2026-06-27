@@ -2,7 +2,7 @@
 
 const ventures = [
   {
-    name: "MKO Collective",
+    name: "MKH Collective",
     label: "CPG Consulting",
     desc: "Data-driven consulting for CPG brands at every stage of growth — growth strategy, procurement, and operations in one integrated practice.",
     href: "https://www.mkhcollective.com",
@@ -85,6 +85,16 @@ export default function Hero() {
           padding: "0 40px",
         }}
       >
+        {/* Top divider line */}
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            backgroundColor: "rgba(48,48,48,0.5)",
+            marginBottom: "20px",
+          }}
+        />
+
         <p
           style={{
             fontFamily: "var(--font-mayfest), Georgia, serif",
