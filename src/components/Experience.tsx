@@ -85,7 +85,7 @@ function Card({ job }: { job: Job }) {
       style={{
         backgroundColor: "#FFFFFF",
         borderRadius: "4px",
-        border: "1px solid #EAE7E2",
+        border: "1px solid rgba(48,48,48,0.1)",
         width: "100%",
         overflow: "hidden",
       }}
@@ -170,7 +170,7 @@ function Card({ job }: { job: Job }) {
             height: "26px",
             borderRadius: "50%",
             backgroundColor: open ? "#303030" : "transparent",
-            border: `1px solid ${open ? "#303030" : "#EAE7E2"}`,
+            border: `1px solid ${open ? "#303030" : "rgba(48,48,48,0.2)"}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -251,7 +251,7 @@ function Dot({ current }: { current?: boolean }) {
         height: "14px",
         borderRadius: "50%",
         backgroundColor: current ? "#827E79" : "#303030",
-        border: "3px solid #FFFFFF",
+        border: "3px solid #EAE7E2",
         boxShadow: current
           ? "0 0 0 2px #827E79"
           : "0 0 0 1px rgba(48,48,48,0.25)",
@@ -264,91 +264,169 @@ function Dot({ current }: { current?: boolean }) {
 }
 
 export default function Experience() {
+  const [sectionOpen, setSectionOpen] = useState(false);
+
   return (
     <section
       id="experience"
       className="experience-section"
       style={{
-        backgroundColor: "#F7F6F1",
+        backgroundColor: "#EAE7E2",
         padding: "100px 24px",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        {/* Header */}
-        <div style={{ marginBottom: "64px" }}>
-          <span
-            style={{
-              fontFamily: "var(--font-questrial), sans-serif",
-              color: "#827E79",
-              fontSize: "10px",
-              fontWeight: 400,
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              display: "block",
-              marginBottom: "16px",
-            }}
-          >
-            Experience
-          </span>
-          <h2
-            style={{
-              fontFamily: "var(--font-mayfest), Georgia, serif",
-              fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
-              fontWeight: 400,
-              color: "#303030",
-              lineHeight: 1.1,
-              letterSpacing: "0.01em",
-            }}
-          >
-            Career Journey
-          </h2>
-        </div>
+        {/* Header — clickable toggle */}
+        <button
+          onClick={() => setSectionOpen((o) => !o)}
+          aria-expanded={sectionOpen}
+          style={{
+            width: "100%",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            textAlign: "left",
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: "24px",
+            marginBottom: sectionOpen ? "64px" : "0",
+            transition: "margin-bottom 0.35s ease",
+          }}
+        >
+          <div>
+            <span
+              style={{
+                fontFamily: "var(--font-questrial), sans-serif",
+                color: "#827E79",
+                fontSize: "10px",
+                fontWeight: 400,
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                display: "block",
+                marginBottom: "16px",
+              }}
+            >
+              Experience
+            </span>
+            <h2
+              style={{
+                fontFamily: "var(--font-mayfest), Georgia, serif",
+                fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+                fontWeight: 400,
+                color: "#303030",
+                lineHeight: 1.1,
+                letterSpacing: "0.01em",
+                margin: 0,
+              }}
+            >
+              Career Journey
+            </h2>
+          </div>
 
-        {/* Timeline */}
-        <div style={{ position: "relative" }} className="timeline-root">
+          {/* Toggle chevron */}
           <div
-            className="timeline-line"
             style={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              top: "8px",
-              bottom: "8px",
-              width: "1px",
-              background: "linear-gradient(to bottom, #303030, rgba(48,48,48,0.1))",
-              zIndex: 0,
+              flexShrink: 0,
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              backgroundColor: sectionOpen ? "#303030" : "transparent",
+              border: `1px solid ${sectionOpen ? "#303030" : "rgba(48,48,48,0.3)"}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "background-color 0.25s, border-color 0.25s",
+              marginBottom: "6px",
             }}
-          />
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 10 10"
+              fill="none"
+              style={{
+                transition: "transform 0.35s ease",
+                transform: sectionOpen ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            >
+              <path
+                d="M1.5 3.5L5 7L8.5 3.5"
+                stroke={sectionOpen ? "#FFFFFF" : "#303030"}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </button>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            {jobs.map((job, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <div
-                  key={`${job.company}-${i}`}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 48px 1fr",
-                    alignItems: "start",
-                    position: "relative",
-                  }}
-                  className="timeline-row"
-                >
-                  <div style={{ paddingRight: "24px" }}>
-                    {isLeft && <Card job={job} />}
+        {/* Collapsible timeline */}
+        <div
+          style={{
+            maxHeight: sectionOpen ? "4000px" : "0",
+            overflow: "hidden",
+            transition: "max-height 0.5s ease",
+          }}
+        >
+          <div style={{ position: "relative" }} className="timeline-root">
+            <div
+              className="timeline-line"
+              style={{
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                top: "8px",
+                bottom: "8px",
+                width: "1px",
+                background: "linear-gradient(to bottom, #303030, rgba(48,48,48,0.1))",
+                zIndex: 0,
+              }}
+            />
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              {jobs.map((job, i) => {
+                const isLeft = i % 2 === 0;
+                return (
+                  <div
+                    key={`${job.company}-${i}`}
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 48px 1fr",
+                      alignItems: "start",
+                      position: "relative",
+                    }}
+                    className="timeline-row"
+                  >
+                    <div style={{ paddingRight: "24px" }}>
+                      {isLeft && <Card job={job} />}
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center", paddingTop: "18px", zIndex: 1 }}>
+                      <Dot current={job.current} />
+                    </div>
+                    <div style={{ paddingLeft: "24px" }}>
+                      {!isLeft && <Card job={job} />}
+                    </div>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "center", paddingTop: "18px", zIndex: 1 }}>
-                    <Dot current={job.current} />
-                  </div>
-                  <div style={{ paddingLeft: "24px" }}>
-                    {!isLeft && <Card job={job} />}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .timeline-line { display: none !important; }
+          .timeline-row {
+            grid-template-columns: 1fr !important;
+          }
+          .timeline-row > div:nth-child(2) { display: none !important; }
+          .timeline-row > div:nth-child(3) { padding-left: 0 !important; }
+          .timeline-row > div:nth-child(1) { padding-right: 0 !important; }
+        }
+      `}</style>
     </section>
   );
 }

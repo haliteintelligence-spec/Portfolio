@@ -1,184 +1,405 @@
 "use client";
 
-export default function Contact() {
+import { useState } from "react";
+
+type FormState = "idle" | "submitting" | "success" | "error";
+
+function ContactModal({ onClose }: { onClose: () => void }) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [note, setNote] = useState("");
+  const [status, setStatus] = useState<FormState>("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, note }),
+      });
+
+      if (!res.ok) throw new Error();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    backgroundColor: "#F7F6F1",
+    border: "1px solid rgba(48,48,48,0.12)",
+    borderRadius: "4px",
+    padding: "12px 16px",
+    fontSize: "13px",
+    fontFamily: "var(--font-lato), sans-serif",
+    fontWeight: 300,
+    color: "#303030",
+    letterSpacing: "0.02em",
+    outline: "none",
+    boxSizing: "border-box",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontFamily: "var(--font-questrial), sans-serif",
+    fontSize: "9px",
+    fontWeight: 400,
+    color: "#827E79",
+    letterSpacing: "0.25em",
+    textTransform: "uppercase",
+    marginBottom: "8px",
+  };
+
   return (
-    <section
-      id="contact"
-      className="contact-section"
-      style={{
-        backgroundColor: "#303030",
-        padding: "100px 24px",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
+    <>
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 100,
+          backgroundColor: "rgba(0,0,0,0.55)",
+          backdropFilter: "blur(2px)",
+        }}
+      />
+
+      {/* Modal */}
       <div
         style={{
-          maxWidth: "700px",
-          margin: "0 auto",
-          textAlign: "center",
-          position: "relative",
-          zIndex: 1,
+          position: "fixed",
+          inset: 0,
+          zIndex: 101,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+          pointerEvents: "none",
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-questrial), sans-serif",
-            color: "#827E79",
-            fontSize: "10px",
-            fontWeight: 400,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            display: "block",
-            marginBottom: "20px",
-          }}
-        >
-          Contact
-        </span>
-        <h2
-          style={{
-            fontFamily: "var(--font-mayfest), Georgia, serif",
-            fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)",
-            fontWeight: 400,
-            color: "#FFFFFF",
-            marginBottom: "24px",
-            lineHeight: 1.1,
-            letterSpacing: "0.01em",
-          }}
-        >
-          Let&apos;s Build Something Together
-        </h2>
-        <p
-          style={{
-            color: "rgba(255,255,255,0.6)",
-            fontSize: "14px",
-            lineHeight: 1.7,
-            marginBottom: "52px",
-            maxWidth: "480px",
-            margin: "0 auto 52px",
-            fontWeight: 300,
-            letterSpacing: "0.035em",
-          }}
-        >
-          Whether you want to discuss a procurement challenge, explore a partnership
-          in beauty AI, or just connect — my inbox is open.
-        </p>
-
         <div
-          className="contact-btns"
           style={{
-            display: "flex",
-            gap: "12px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginBottom: "56px",
+            backgroundColor: "#FFFFFF",
+            borderRadius: "4px",
+            width: "100%",
+            maxWidth: "520px",
+            padding: "48px 44px",
+            position: "relative",
+            pointerEvents: "auto",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.18)",
           }}
         >
-          <a
-            href="mailto:marieozenua@gmail.com"
+          {/* Close */}
+          <button
+            onClick={onClose}
+            aria-label="Close"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              backgroundColor: "#FFFFFF",
-              color: "#000000",
-              padding: "10px 28px",
-              borderRadius: "10px",
-              fontSize: "12px",
-              fontFamily: "var(--font-quattrocento), sans-serif",
-              fontWeight: 400,
-              textDecoration: "none",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              transition: "opacity 0.2s",
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "#303030",
+              opacity: 0.4,
+              padding: "4px",
+              lineHeight: 0,
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.4")}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
-            Send Email
-          </a>
-          <a
-            href="https://github.com/haliteintelligence-spec"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              backgroundColor: "transparent",
-              color: "#FFFFFF",
-              padding: "10px 28px",
-              borderRadius: "10px",
-              fontSize: "12px",
-              fontFamily: "var(--font-quattrocento), sans-serif",
-              fontWeight: 400,
-              textDecoration: "none",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              border: "2px solid rgba(255,255,255,0.4)",
-              transition: "border-color 0.2s, opacity 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.8)")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)")}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-            </svg>
-            GitHub
-          </a>
+          </button>
+
+          {status === "success" ? (
+            <div style={{ textAlign: "center", padding: "24px 0" }}>
+              <p
+                style={{
+                  fontFamily: "var(--font-mayfest), Georgia, serif",
+                  fontSize: "1.8rem",
+                  fontWeight: 400,
+                  color: "#303030",
+                  marginBottom: "16px",
+                  lineHeight: 1.2,
+                }}
+              >
+                Message sent.
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-lato), sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 300,
+                  color: "#827E79",
+                  letterSpacing: "0.03em",
+                  lineHeight: 1.6,
+                }}
+              >
+                Thank you for reaching out. I&apos;ll be in touch soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              <p
+                style={{
+                  fontFamily: "var(--font-mayfest), Georgia, serif",
+                  fontSize: "1.6rem",
+                  fontWeight: 400,
+                  color: "#303030",
+                  marginBottom: "36px",
+                  lineHeight: 1.2,
+                  letterSpacing: "0.01em",
+                }}
+              >
+                Get in touch
+              </p>
+
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div>
+                  <label style={labelStyle}>Name</label>
+                  <input
+                    required
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your name"
+                    style={inputStyle}
+                  />
+                </div>
+
+                <div>
+                  <label style={labelStyle}>Phone <span style={{ opacity: 0.5 }}>(optional)</span></label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+1 (000) 000-0000"
+                    style={inputStyle}
+                  />
+                </div>
+
+                <div>
+                  <label style={labelStyle}>Email</label>
+                  <input
+                    required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    style={inputStyle}
+                  />
+                </div>
+
+                <div>
+                  <label style={labelStyle}>Drop a note</label>
+                  <textarea
+                    required
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    placeholder="What's on your mind?"
+                    rows={5}
+                    style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
+                  />
+                </div>
+
+                {status === "error" && (
+                  <p style={{ fontSize: "12px", color: "#c0392b", fontFamily: "var(--font-lato)", fontWeight: 300 }}>
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  style={{
+                    backgroundColor: "#000000",
+                    color: "#FFFFFF",
+                    border: "none",
+                    borderRadius: "4px",
+                    padding: "13px 28px",
+                    fontSize: "11px",
+                    fontFamily: "var(--font-quattrocento), sans-serif",
+                    fontWeight: 400,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    cursor: status === "submitting" ? "not-allowed" : "pointer",
+                    opacity: status === "submitting" ? 0.6 : 1,
+                    transition: "opacity 0.2s",
+                    alignSelf: "flex-start",
+                  }}
+                  onMouseEnter={(e) => { if (status !== "submitting") e.currentTarget.style.opacity = "0.75"; }}
+                  onMouseLeave={(e) => { if (status !== "submitting") e.currentTarget.style.opacity = "1"; }}
+                >
+                  {status === "submitting" ? "Sending…" : "Send Message"}
+                </button>
+              </form>
+            </>
+          )}
         </div>
+      </div>
+    </>
+  );
+}
 
+export default function Contact() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <section
+        id="contact"
+        className="contact-section"
+        style={{
+          backgroundColor: "#303030",
+          padding: "100px 24px",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
         <div
           style={{
-            width: "40px",
-            height: "1px",
-            backgroundColor: "rgba(255,255,255,0.12)",
-            margin: "0 auto 32px",
-          }}
-        />
-
-        <div
-          className="contact-links"
-          style={{
-            display: "flex",
-            gap: "28px",
-            justifyContent: "center",
-            flexWrap: "wrap",
+            maxWidth: "700px",
+            margin: "0 auto",
+            textAlign: "center",
+            position: "relative",
+            zIndex: 1,
           }}
         >
-          {[
-            { label: "MKH Collective", href: "https://www.mkhcollective.com" },
-            { label: "Halite Intelligence", href: "https://haliteintelligence.com" },
-            { label: "Nnu Botanica", href: "https://nnubotanica.com" },
-            { label: "Aura", href: "https://aura-chi-three.vercel.app/" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
+          <span
+            style={{
+              fontFamily: "var(--font-questrial), sans-serif",
+              color: "#827E79",
+              fontSize: "10px",
+              fontWeight: 400,
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              display: "block",
+              marginBottom: "20px",
+            }}
+          >
+            Contact
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-mayfest), Georgia, serif",
+              fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)",
+              fontWeight: 400,
+              color: "#FFFFFF",
+              marginBottom: "24px",
+              lineHeight: 1.1,
+              letterSpacing: "0.01em",
+            }}
+          >
+            Let&apos;s Connect
+          </h2>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.6)",
+              fontSize: "14px",
+              lineHeight: 1.7,
+              maxWidth: "480px",
+              margin: "0 auto 52px",
+              fontWeight: 300,
+              letterSpacing: "0.035em",
+            }}
+          >
+            Whether you want to discuss a procurement challenge, explore a partnership
+            in beauty AI, or just connect — my inbox is open.
+          </p>
+
+          <div
+            className="contact-btns"
+            style={{
+              display: "flex",
+              gap: "12px",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              marginBottom: "56px",
+            }}
+          >
+            <button
+              onClick={() => setModalOpen(true)}
               style={{
-                fontFamily: "var(--font-questrial), sans-serif",
-                color: "rgba(255,255,255,0.4)",
-                textDecoration: "none",
-                fontSize: "10px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                backgroundColor: "#FFFFFF",
+                color: "#000000",
+                padding: "10px 28px",
+                borderRadius: "10px",
+                fontSize: "12px",
+                fontFamily: "var(--font-quattrocento), sans-serif",
                 fontWeight: 400,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                transition: "color 0.2s",
+                border: "none",
+                cursor: "pointer",
+                transition: "opacity 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
-              {link.label}
-            </a>
-          ))}
+              Contact
+            </button>
+          </div>
+
+          <div
+            style={{
+              width: "40px",
+              height: "1px",
+              backgroundColor: "rgba(255,255,255,0.12)",
+              margin: "0 auto 32px",
+            }}
+          />
+
+          <div
+            className="contact-links"
+            style={{
+              display: "flex",
+              gap: "28px",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            {[
+              { label: "MKO Collective", href: "https://www.mkhcollective.com" },
+              { label: "Halite Intelligence", href: "https://haliteintelligence.com" },
+              { label: "Nnu Botanica", href: "https://nnubotanica.com" },
+              { label: "Aura", href: "https://aura-chi-three.vercel.app/" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: "var(--font-questrial), sans-serif",
+                  color: "rgba(255,255,255,0.4)",
+                  textDecoration: "none",
+                  fontSize: "10px",
+                  fontWeight: 400,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {modalOpen && <ContactModal onClose={() => setModalOpen(false)} />}
+    </>
   );
 }
