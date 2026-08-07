@@ -9,8 +9,8 @@ const ventures = [
   },
   {
     name: "Halite Intelligence",
-    label: "AI Infrastructure",
-    desc: "Predictive AI infrastructure for CPG and beauty brands — turning consumer interactions into retention, personalization, and growth.",
+    label: "Consumer Identity Infrastructure",
+    desc: "Consumer identity infrastructure for AI commerce — one consented, portable profile that travels with the shopper from brand to brand, so they arrive already known.",
     href: "https://haliteintelligence.com",
   },
   {

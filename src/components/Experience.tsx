@@ -21,7 +21,8 @@ const jobs: Job[] = [
     current: true,
     tag: "Founder",
     highlights: [
-      "Founded and leading Halite Intelligence — a closed-loop AI infrastructure platform built for beauty brands",
+      "Founded and leading Halite Intelligence — consumer identity infrastructure for AI commerce, built on one consented consumer profile that travels brand to brand",
+      "Shipped a two-sided system: a brand-side identity and recommendation layer, and Hallie, the consumer app where shoppers own and monetize their own profile",
       "Building full-stack product using React, Next.js, Supabase, PostgreSQL, and the Anthropic API",
     ],
   },

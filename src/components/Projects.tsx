@@ -13,10 +13,10 @@ type Project = {
 const projects: Project[] = [
   {
     name: "Halite Intelligence",
-    tagline: "Closed-loop AI infrastructure for beauty brands",
+    tagline: "Consumer identity infrastructure for AI commerce",
     description:
-      "A purpose-built AI platform designed specifically for beauty brands — providing spend intelligence, supplier assessment, and procurement automation in a single closed-loop system. Built to give beauty operators the kind of enterprise-grade AI infrastructure that has historically only been available to Fortune 500 companies.",
-    tags: ["React", "Next.js", "Anthropic API", "Supabase", "PostgreSQL", "AWS"],
+      "Halite gives every partner brand one consented, portable consumer profile — built by the shopper and carried from brand to brand. Instead of opening with a cold onboarding quiz, brands personalize accurately on the first visit and get sharper with every check-in. It runs as two sides of one system: Halite, the identity and recommendation layer brands install in about a week with no code, and Hallie, the consumer app where shoppers own their profile, log what they use, and get paid for what they share. Consent is the gate — nothing moves between brands without it.",
+    tags: ["React", "Next.js", "Anthropic API", "Supabase", "PostgreSQL", "Shopify", "AWS"],
     url: "https://haliteintelligence.com",
     github: "https://github.com/haliteintelligence-spec",
     accent: "#303030",
